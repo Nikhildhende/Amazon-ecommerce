@@ -1,0 +1,39 @@
+package amazonPackage;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AmazonAutomate {
+	
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "D:\\Testing data Nikhil\\Final Nikhil Data-Testing\\Softwares\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		//driver.manage().deleteAllCookies();
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.get("https://www.amazon.in/");// Amazon website
+		
+		//Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("//*[@id=\"nav-signin-tooltip\"]/a/span")).click();// click on Sign in button
+		driver.findElement(By.xpath("//*[@name='email']")).sendKeys("9664892217");// Email Field
+		
+		driver.findElement(By.xpath("//*[@id='continue']")).click();// clicked on continue button
+		
+		driver.findElement(By.xpath("//*[@name='password']")).sendKeys("Nikhil@786");// type password
+		driver.findElement(By.xpath("//*[@type='submit']")).click();// clicked on submit for sign in
+		
+		
+		driver.findElement(By.xpath("//*[@id='nav-cart-count']")).click();// clicked on cart button
+		driver.findElement(By.xpath("//*[@name='proceedToRetailCheckout']")).click();// clicked on proceed to check button
+		driver.findElement(By.xpath("//*[@id=\"shipToThisAddressButton\"]/span/input")).click();//clicked on Use this address
+		
+		driver.findElement(By.xpath("//*[@id=\"pp-Gk5fFy-118\"]")).click();//clicked on Payment method-UPI.
+		
+	}
+
+}
